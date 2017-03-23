@@ -37,6 +37,12 @@ public class MyStack<T> {
     }
 
     public T pop() {
-        return top.data;
+        if (top == null) {
+            throw new EmptyStackException();
+        }
+
+        Node popped = top;
+        top = top.next;
+        return popped.data;
     }
 }

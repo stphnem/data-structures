@@ -35,8 +35,16 @@ public class MyStackTest {
         assertEquals(new Integer(1), stack.pop());
     }
 
-    @Test
+    @Test(expected = EmptyStackException.class)
     public void popFromStackWhenEmpty() {
-        
+        stack.pop();
+    }
+
+    @Test
+    public void popChangesTop() {
+        stack.push(1);
+        stack.push(2);
+        stack.pop();
+        assertEquals(new Integer(1), stack.pop());
     }
 }
